@@ -118,7 +118,8 @@ Validate the fix thoroughly and return ONLY JSON.
         }
 
     # ── 6. Enforce structure check ───────────────────────────────
-    if not structure_check["valid"]:
+    print(f'[DEBUG] structure_check: {structure_check}')
+    if not structure_check['valid']:
         result["is_valid"] = False
         result.setdefault("issues", []).extend(structure_check["errors"])
 
@@ -138,3 +139,5 @@ Validate the fix thoroughly and return ONLY JSON.
     )
 
     return state
+
+

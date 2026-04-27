@@ -1,3 +1,7 @@
+# agents/code_understanding_agent.py
+# Member 1 — Code Understanding Agent (Agent 1 of 4)
+# Orchestrator: LangGraph | LLM: Ollama llama3:8b (local)
+
 from __future__ import annotations
 
 import sys

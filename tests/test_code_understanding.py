@@ -1,3 +1,8 @@
+# tests/test_code_understanding_agent.py
+# Member 1 — Test Code Understanding Agent Test Suite (8 tests)
+# Run with: pytest tests/test_code_understanding_agent.py -v
+
+
 from __future__ import annotations
 
 import sys

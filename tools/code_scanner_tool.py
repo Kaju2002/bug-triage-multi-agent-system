@@ -27,8 +27,14 @@ def scan_codebase(repo_path: str) -> Dict[str, List[str]]:
         raise ValueError("Provided path is not a directory")
 
     code_map: Dict[str, List[str]] = {}
+    
+    # Directories to skip
+    skip_dirs = {'.venv', 'venv', '__pycache__', '.git', 'node_modules', '.pytest_cache', 'build', 'dist', '.egg-info'}
 
-    for root, _, files in os.walk(repo_path):
+    for root, dirs, files in os.walk(repo_path):
+        # Remove skip_dirs from the directories to walk
+        dirs[:] = [d for d in dirs if d not in skip_dirs]
+        
         for file in files:
             if file.endswith(".py"):
                 file_path = os.path.join(root, file)

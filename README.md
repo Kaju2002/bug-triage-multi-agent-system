@@ -310,22 +310,22 @@ py -m pytest tests/test_bug_analysis.py::TestBugAnalysisNode -v
 ![Workflow Execution](./screenshots/workflow_execution.png)
 
 ### Agent 1 - Code Understanding
-![Agent 1 Output](./screenshots/agent1_code_understanding.png)
+![Agent 1 Output](./screenshots/understanding_agent.png)
 
 ### Agent 2 - Bug Analysis
-![Agent 2 Output](./screenshots/agent2_bug_analysis.png)
+![Agent 2 Output](./screenshots/BugAnalyzeAgent.png)
 
 ### Agent 3 - Fix Generation
-![Agent 3 Output](./screenshots/agent3_fix_generation.png)
+![Agent 3 Output](./screenshots/FixGenerationAgent.png)
 
 ### Agent 4 - Validation
-![Agent 4 Output](./screenshots/agent4_validation.png)
+![Agent 4 Output](./screenshots/Validation.png)
 
 ### Test Results
 ![Test Results](./screenshots/test_results.png)
 
 ### Final Report
-![Final Report](./screenshots/final_report.png)
+![Final Report](./screenshots/FinalReport.png)
 
 ---
 

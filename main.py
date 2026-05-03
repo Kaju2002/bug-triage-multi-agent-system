@@ -125,6 +125,13 @@ class BugTriageOrchestrator:
             print(f"   Confidence: {confidence}")
             print(f"   Code Length: {len(code_snippet)} chars")
             
+            # Display references
+            references = state['proposed_fix'].get('references', [])
+            if references:
+                print(f"   References:")
+                for ref in references:
+                    print(f"      {ref}")
+            
             self.results["agent_3"] = {
                 "status": "success",
                 "fix_description": fix_desc,
@@ -233,6 +240,13 @@ class BugTriageOrchestrator:
                 print(f"      {line}")
             if len(code.split('\n')) > 10:
                 print(f"      ... ({len(code.split('\n')) - 10} more lines)")
+        
+        # References/Documentation
+        references = state['proposed_fix'].get('references', [])
+        if references:
+            print(f"\n   References/Documentation:")
+            for ref in references:
+                print(f"      {ref}")
         print()
         
         # Validation

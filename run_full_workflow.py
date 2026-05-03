@@ -45,7 +45,7 @@ def run_full_workflow(bug_report: str, repo_path: str = ".") -> dict:
     }
     
     print("\n" + "=" * 80)
-    print("🚀 MULTI-AGENT BUG TRIAGE SYSTEM")
+    print(" MULTI-AGENT BUG TRIAGE SYSTEM")
     print("=" * 80)
     print()
     
@@ -56,10 +56,10 @@ def run_full_workflow(bug_report: str, repo_path: str = ".") -> dict:
     print("-" * 80)
     try:
         state = code_understanding_node(state)
-        print(f"✅ Code Understanding complete: {len(state['code_map'])} files found")
+        print(f" Code Understanding complete: {len(state['code_map'])} files found")
         print(f"   Relevant files: {state['relevant_files'][:3]}")
     except Exception as e:
-        print(f"❌ Code Understanding failed: {e}")
+        print(f" Code Understanding failed: {e}")
         return state
     
     print()
@@ -71,12 +71,12 @@ def run_full_workflow(bug_report: str, repo_path: str = ".") -> dict:
     print("-" * 80)
     try:
         state = bug_analysis_node(state)
-        print(f"✅ Bug Analysis complete")
+        print(f" Bug Analysis complete")
         print(f"   Severity: {state['severity'].upper()}")
         print(f"   Category: {state['category'].upper()}")
         print(f"   Root Cause: {state['bug_analysis'].get('root_cause', 'N/A')[:80]}...")
     except Exception as e:
-        print(f"❌ Bug Analysis failed: {e}")
+        print(f" Bug Analysis failed: {e}")
         return state
     
     print()
@@ -88,11 +88,11 @@ def run_full_workflow(bug_report: str, repo_path: str = ".") -> dict:
     print("-" * 80)
     try:
         state = fix_generation_node(state)
-        print(f"✅ Fix Generation complete")
+        print(f" Fix Generation complete")
         print(f"   Confidence: {state['proposed_fix'].get('confidence_score', 'N/A')}")
         print(f"   Fix: {state['proposed_fix'].get('fix_description', 'N/A')[:80]}...")
     except Exception as e:
-        print(f"❌ Fix Generation failed: {e}")
+        print(f" Fix Generation failed: {e}")
         return state
     
     print()
@@ -104,11 +104,11 @@ def run_full_workflow(bug_report: str, repo_path: str = ".") -> dict:
     print("-" * 80)
     try:
         state = validation_node(state)
-        print(f"✅ Validation complete")
+        print(f" Validation complete")
         print(f"   Valid: {state['is_valid']}")
         print(f"   Confidence: {state['validation_result'].get('validation_confidence', 'N/A')}")
     except Exception as e:
-        print(f"❌ Validation failed: {e}")
+        print(f" Validation failed: {e}")
         return state
     
     print()
@@ -120,22 +120,22 @@ def print_final_report(state: dict):
     """Pretty-print the final results."""
     
     print("\n" + "=" * 80)
-    print("📊 FINAL REPORT")
+    print(" FINAL REPORT")
     print("=" * 80)
     print()
     
-    print("🐛 BUG SEVERITY & CATEGORY:")
+    print(" BUG SEVERITY & CATEGORY:")
     print(f"   Severity: {state['severity'].upper()}")
     print(f"   Category: {state['category'].upper()}")
     print()
     
-    print("🔍 ROOT CAUSE ANALYSIS:")
+    print(" ROOT CAUSE ANALYSIS:")
     if state['bug_analysis']:
         root_cause = state['bug_analysis'].get('root_cause', 'N/A')
         print(f"   {root_cause}")
         print()
     
-    print("🛠️  PROPOSED FIX:")
+    print("  PROPOSED FIX:")
     if state['proposed_fix']:
         desc = state['proposed_fix'].get('fix_description', 'N/A')
         confidence = state['proposed_fix'].get('confidence_score', 0)
@@ -149,7 +149,7 @@ def print_final_report(state: dict):
                 print(f"      {line}")
         print()
     
-    print("✅ VALIDATION RESULT:")
+    print(" VALIDATION RESULT:")
     if state['validation_result']:
         valid = state['is_valid']
         print(f"   Valid: {'YES ✓' if valid else 'NO ✗'}")
@@ -190,7 +190,7 @@ def main():
     output_file = "workflow_results.json"
     with open(output_file, "w") as f:
         json.dump(state, f, indent=2, default=str)
-    print(f"\n💾 Results saved to: {output_file}")
+    print(f"\n Results saved to: {output_file}")
 
 
 if __name__ == "__main__":

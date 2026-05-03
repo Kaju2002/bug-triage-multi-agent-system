@@ -321,8 +321,7 @@ py -m pytest tests/test_bug_analysis.py::TestBugAnalysisNode -v
 ### Agent 4 - Validation
 ![Agent 4 Output](./screenshots/Validation.png)
 
-### Test Results
-![Test Results](./screenshots/test_results.png)
+
 
 ### Final Report
 ![Final Report](./screenshots/FinalReport.png)

@@ -313,7 +313,7 @@ py -m pytest tests/test_bug_analysis.py::TestBugAnalysisNode -v
 ![Agent 1 Output](./screenshots/understanding_agent.png)
 
 ### Agent 2 - Bug Analysis
-![Agent 2 Output](./screenshots/BugAnalyzeAgent.png)
+![Agent 2 Output](./screenshots/BugAnalizeAgent.png)
 
 ### Agent 3 - Fix Generation
 ![Agent 3 Output](./screenshots/FixGenerationAgent.png)
